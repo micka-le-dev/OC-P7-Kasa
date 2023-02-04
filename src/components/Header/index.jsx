@@ -28,6 +28,9 @@ const LogoStyled = styled.img`
 const LinkStyled = styled(Link)`
     margin-left: ${calculClampValues(410, 375, 29, 10)};
     font-size: ${calculClampValues(410, 375, 24, 16)};
+    &:hover {
+        text-decoration: underline;
+    }
 `
 
 function Header() {
