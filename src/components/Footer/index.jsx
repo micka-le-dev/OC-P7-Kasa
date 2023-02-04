@@ -12,7 +12,6 @@ const LogoStyled = styled.img`
 `
 const TextStyled = styled.p`
     color: white;
-    font-size: 24px;
     @media only screen and (max-width: 375px) {
         font-size: 12px;
     }
