@@ -6,6 +6,9 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
+// import des composants communs à toutes les pages
+import Footer from "./components/Footer/index"
+
 // import des pages
 import Home from "./pages/Home/index"
 import Logement from "./pages/Logement/index"
@@ -32,6 +35,7 @@ root.render(
             <Route path="/apropos" element={<APropos />} />
             <Route path="/*" element={<Error />} />
         </Routes>
+        <Footer />
     </Router>
 )
 
