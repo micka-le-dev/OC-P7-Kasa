@@ -6,6 +6,11 @@ const GlobalStyleStyled = createGlobalStyle`
       color: #FF6060;
       font-size: 24px;
     }
+    *, ::before, ::after{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     a {
       text-decoration: none;
@@ -22,6 +27,13 @@ const GlobalStyleStyled = createGlobalStyle`
     }
     .corps-de-page{
       flex-grow: 1;
+      margin: 40px 100px;
+      @media only screen and (max-width: 768px) {
+          margin: 40px;
+      }
+      @media only screen and (max-width: 450px) {
+          margin: 20px;
+      }
       display: flex;
       flex-direction: column;
     }

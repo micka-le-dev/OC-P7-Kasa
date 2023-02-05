@@ -1,5 +1,11 @@
+import BandeauHome from "../../components/BandeauHome/index.jsx"
+
 function Home() {
-    return <span>Page d'accueil</span>
+    return (
+        <frameElement>
+            <BandeauHome />
+        </frameElement>
+    )
 }
 
 export default Home
