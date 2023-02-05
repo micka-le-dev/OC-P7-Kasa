@@ -1,10 +1,12 @@
 import BandeauHome from "../../components/BandeauHome/index.jsx"
+import Galery from "../../components/Galery/index.jsx"
 
 function Home() {
     return (
-        <frameElement>
+        <div>
             <BandeauHome />
-        </frameElement>
+            <Galery />
+        </div>
     )
 }
 

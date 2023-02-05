@@ -2,16 +2,12 @@ import styled from "styled-components"
 // import calculClampValues from "../../utils/styles/calculClampValues.js"
 
 import imageBG from "../../assets/bandeau-accueil.jpg"
+import { BackgroundImg } from "../../utils/styles/Atoms.jsx"
 
 const BandeauBackground = styled.section`
     position: relative;
     border-radius: 25px;
     overflow: hidden;
-`
-const Background = styled.img`
-    display: block;
-    width: 100%;
-    object-fit: cover;
 `
 const VoileNoir = styled.div`
     position: absolute;
@@ -34,7 +30,7 @@ const TextStyled = styled.p`
 export default function BandeauHome() {
     return (
         <BandeauBackground>
-            <Background
+            <BackgroundImg
                 src={imageBG}
                 alt="rochers avec arbres en bord de mer"
             />
