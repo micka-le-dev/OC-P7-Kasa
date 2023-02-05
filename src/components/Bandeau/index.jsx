@@ -41,9 +41,5 @@ Bandeau.propTypes = {
     imageBG: PropTypes.string.isRequired,
     altImage: PropTypes.string.isRequired,
 }
-Bandeau.defaultProps = {
-    idLogement: "id",
-    title: "title",
-    picture: "",
-}
+
 export default Bandeau
