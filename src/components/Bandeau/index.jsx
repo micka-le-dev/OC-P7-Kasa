@@ -1,7 +1,6 @@
 import styled from "styled-components"
-// import calculClampValues from "../../utils/styles/calculClampValues.js"
+import PropTypes from "prop-types"
 
-import imageBG from "../../assets/bandeau-accueil.jpg"
 import { BackgroundImg } from "../../utils/styles/Atoms.jsx"
 
 const BandeauBackground = styled.section`
@@ -27,15 +26,24 @@ const TextStyled = styled.p`
     color: #ffffff;
 `
 
-export default function BandeauHome() {
+function Bandeau({ text, imageBG, altImage }) {
     return (
         <BandeauBackground>
-            <BackgroundImg
-                src={imageBG}
-                alt="rochers avec arbres en bord de mer"
-            />
+            <BackgroundImg src={imageBG} alt={altImage} />
             <VoileNoir />
-            <TextStyled>Chez vous, partout et ailleurs</TextStyled>
+            {text ? <TextStyled>{text}</TextStyled> : null}
         </BandeauBackground>
     )
 }
+
+Bandeau.propTypes = {
+    text: PropTypes.string,
+    imageBG: PropTypes.string.isRequired,
+    altImage: PropTypes.string.isRequired,
+}
+Bandeau.defaultProps = {
+    idLogement: "id",
+    title: "title",
+    picture: "",
+}
+export default Bandeau

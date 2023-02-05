@@ -38,7 +38,7 @@ root.render(
         <div class="corps-de-page">
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/logement" element={<Logement />} />
+                <Route path="/logement/:idLogement" element={<Logement />} />
                 <Route path="/apropos" element={<APropos />} />
                 <Route path="/*" element={<Error />} />
             </Routes>

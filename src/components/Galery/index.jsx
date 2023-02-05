@@ -25,7 +25,7 @@ const GaleryGrid = styled.div`
 export default function Galery() {
     const listLogements = listLogementsMoked
 
-    const error = false
+    const error = !listLogements
 
     if (error)
         return (
