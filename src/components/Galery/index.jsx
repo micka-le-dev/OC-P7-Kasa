@@ -25,7 +25,6 @@ const GaleryGrid = styled.div`
 export default function Galery() {
     const { data: listLogements, isLoad, error } = useFetch("logements")
 
-    console.log("Galery : listLogements", listLogements)
     if (isLoad)
         return (
             <Wrapper>
