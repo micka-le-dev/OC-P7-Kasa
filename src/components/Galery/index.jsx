@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import listLogementsMoked from "../../mocks/logements.json"
 import CardGalery from "../CardGalery/index.jsx"
+import { useFetch } from "../../utils/hooks/index"
 
 const Wrapper = styled.section`
     margin-top: 43px;
@@ -8,7 +8,7 @@ const Wrapper = styled.section`
     background: #f7f7f7;
     border-radius: 25px;
 `
-const Error = styled.p`
+const Message = styled.p`
     text-align: center;
     font-weight: 500;
     font-size: 36px;
@@ -23,17 +23,23 @@ const GaleryGrid = styled.div`
 `
 
 export default function Galery() {
-    const listLogements = listLogementsMoked
+    const { data: listLogements, isLoad, error } = useFetch("logements")
 
-    const error = !listLogements
+    console.log("Galery : listLogements", listLogements)
+    if (isLoad)
+        return (
+            <Wrapper>
+                <Message>Chargement de la galerie en cours...</Message>
+            </Wrapper>
+        )
 
     if (error)
         return (
             <Wrapper>
-                <Error>
+                <Message>
                     Oups! Une erreur est survenue lors de la récupération de la
                     galerie.
-                </Error>
+                </Message>
             </Wrapper>
         )
 
