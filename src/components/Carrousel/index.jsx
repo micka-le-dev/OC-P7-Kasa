@@ -109,7 +109,7 @@ function Carrousel({ pictures }) {
 
         // attendre la fin de l'animation pour faire setCurrentItem(??)
         // supprimer l'animation pour donner l'illusion d'une infinité d'images
-        if (futureItem == lastItem)
+        if (futureItem === lastItem)
             setTimeout(() => {
                 setCurrentItem(1)
                 logState("setTimeout : next -> " + 1)
@@ -122,7 +122,7 @@ function Carrousel({ pictures }) {
         setCurrentPicture(futurePicture < 1 ? nomberPictures : futurePicture)
         setCurrentItem(futureItem)
 
-        if (futureItem == 0)
+        if (futureItem === 0)
             // attendre la fin de l'animation pour faire setCurrentItem(??)
             // supprimer l'animation pour donner l'illusion d'une infinité d'images
             setTimeout(() => {
@@ -146,7 +146,7 @@ function Carrousel({ pictures }) {
                         >
                             <Image src={item} alt={"interieur du logement"} />
                             <TextDebug>
-                                index item {index}/{nomberItems - 1}
+                                index item {index}/{lastItem}
                             </TextDebug>
                         </CarrouselItem>
                     ))}
