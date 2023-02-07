@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useFetch } from "../../utils/hooks/index.jsx"
 import Error from "../../pages/Error/index.jsx"
-import Carousel from "../../components/Carrousel/Carrousel.jsx"
+import Carousel from "../../components/Carrousel/index.jsx"
 import { Message } from "../../utils/styles/Atoms.jsx"
 
 function Logement() {

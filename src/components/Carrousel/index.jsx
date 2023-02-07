@@ -1,69 +1,128 @@
 import styled from "styled-components"
 import PropTypes from "prop-types"
-import ClassCarrousel from "./Carrousel.js"
+import { useState } from "react"
 
-const Wrapper = styled.section`
+import { BackgroundImg } from "../../utils/styles/Atoms.jsx"
+import nextSVG from "../../assets/Vector-next.svg"
+import prevSVG from "../../assets/Vector-previous.svg"
+
+// root .carousel 24:48
+const CarrouselWrapper = styled.div`
     position: relative;
-    border-radius: 25px;
-    // overflow: hidden;
     aspect-ratio: 1240 / 415;
-    background: #ff6060;
+    border-radius: 25px;
+    overflow: hidden;
 `
-const Slider = styled.div`
-    position: absolute;
-    inset: 0;
-    background: lightblue;
+const CarrouselContainer = styled.div`
+    width: ${(props) => props.nombrePictures * 100}%;
 `
-const Slides = styled.div``
-
+const CarrouselContent = styled.div`
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(
+        ${(props) => (-100 * props.currentPicture) / props.nombrePictures}%
+    );
+`
+const CarrouselItem = styled.div`
+    float: left;
+    width: ${(props) => 100 / props.nombrePictures}%;
+`
 const Image = styled.img`
     display: block;
-    max-width: 300px; //tmp
+    aspect-ratio: 1240 / 415;
     width: 100%;
     object-fit: cover;
-    float: left;
 `
-// const VoileSombre = styled.div`
-//     position: absolute;
-//     inset: 0;
-//     background: linear-gradient(
-//         180deg,
-//         rgba(255, 255, 255, 0) 0%,
-//         rgba(0, 0, 0, 0.5) 100%
-//     );
-// `
-// const TextStyled = styled.p`
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
 
-//     font-weight: 500;
-//     font-size: 48px;
-//     color: #ffffff;
-// `
+const NextBtn = styled.div`
+    position: absolute;
+    top: 37.5%;
+    right: 1.85%;
+    bottom: 43.12%;
+    width: 47px;
+    height: 80px;
+`
+const PrevBtn = styled.div`
+    position: absolute;
+    top: 37.5%;
+    left: 1.85%;
+    bottom: 43.12%;
+    width: 47px;
+    height: 80px;
+`
+const Text = styled.p`
+    position: absolute;
+    left: 48.95%;
+    right: 49.11%;
+    top: 86.19%;
+    bottom: 6.01%;
 
-function Carousel({ pictures }) {
-    new ClassCarrousel()
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 142.6%;
+    /* or 26px */
+
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+
+    color: #ffffff;
+`
+
+function Carrousel({ pictures }) {
+    const [currentItem, setCurrentItem] = useState(0)
+    const next = () => {
+        const futureItem = currentItem + 1
+        setCurrentItem(futureItem >= pictures.length ? 0 : futureItem)
+    }
+    const prev = () => {
+        const futureItem = currentItem - 1
+        setCurrentItem(futureItem < 0 ? pictures.length - 1 : futureItem)
+    }
+
     return (
-        <Wrapper>
-            <Slider>
-                <Slides>
+        <CarrouselWrapper>
+            <CarrouselContainer nombrePictures={pictures?.length}>
+                <CarrouselContent
+                    currentPicture={currentItem}
+                    nombrePictures={pictures?.length}
+                >
                     {pictures?.map((picture, index) => (
-                        <Image
+                        <CarrouselItem
                             key={`carrousel-${index}`}
-                            src={picture}
-                            alt={"interieur du logement"}
-                        />
+                            nombrePictures={pictures?.length}
+                        >
+                            <Image
+                                src={picture}
+                                alt={"interieur du logement"}
+                            />
+                        </CarrouselItem>
                     ))}
-                </Slides>
-            </Slider>
-        </Wrapper>
+                </CarrouselContent>
+            </CarrouselContainer>
+
+            <NextBtn onClick={() => next()}>
+                <BackgroundImg
+                    src={nextSVG}
+                    alt={"flèche pour affichier l'image suivante"}
+                />
+            </NextBtn>
+            <PrevBtn onClick={() => prev()}>
+                <BackgroundImg
+                    src={prevSVG}
+                    alt={"flèche pour affichier l'image précedente"}
+                />
+            </PrevBtn>
+            <Text>
+                {currentItem + 1}/{pictures.length}
+            </Text>
+        </CarrouselWrapper>
     )
 }
 
-Carousel.propTypes = {
+Carrousel.propTypes = {
     pictures: PropTypes.array,
 }
 
-export default Carousel
+export default Carrousel
