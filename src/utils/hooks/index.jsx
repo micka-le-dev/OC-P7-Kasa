@@ -4,8 +4,9 @@ import { useState, useEffect } from "react"
 import listLogementsMocked from "../../mocks/logements.json"
 
 export function useFetch(urlAPI) {
+    console.log("useFetch ", urlAPI)
     const [data, setData] = useState([])
-    const [isLoad, setLoad] = useState(true)
+    const [isLoad, setLoad] = useState(false)
     const [error, setError] = useState(false)
 
     async function fetchData(urlAPI) {
@@ -44,6 +45,7 @@ export function useFetch(urlAPI) {
 
     // fetchData(urlAPI)
     useEffect(() => {
+        console.log("useEffect -> fetch")
         if (!urlAPI) return
         fetchData(urlAPI)
     }, [urlAPI])
