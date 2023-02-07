@@ -1,18 +1,13 @@
 import styled from "styled-components"
 import CardGalery from "../CardGalery/index.jsx"
 import { useFetch } from "../../utils/hooks/index"
+import { Message } from "../../utils/styles/Atoms.jsx"
 
 const Wrapper = styled.section`
     margin-top: 43px;
     padding: 50px;
     background: #f7f7f7;
     border-radius: 25px;
-`
-const Message = styled.p`
-    text-align: center;
-    font-weight: 500;
-    font-size: 36px;
-    line-height: 142.6%;
 `
 const GaleryGrid = styled.div`
     margin: 0 auto;
