@@ -7,7 +7,8 @@ import Tags from "../../components/Tags/index.jsx"
 import Dropdown from "../../components/Dropdown/index.jsx"
 import styled from "styled-components"
 import TitreLogement from "../../components/TitreLogement/index.jsx"
-import Stars from "../../components/Stars/index.jsx"
+import Stars from "../../components/Note/index.jsx"
+import Host from "../../components/Host/index.jsx"
 
 const DropdownWrapper = styled.div`
     display: flex;
@@ -18,6 +19,30 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     gap: 20px;
+`
+const Details = styled.section`
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    @media only screen and (max-width: 680px) {
+        flex-direction: column;
+    }
+`
+const DetailsBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`
+const DetailsNoteEtHost = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    @media only screen and (max-width: 680px) {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+    }
 `
 
 function Logement() {
@@ -34,12 +59,22 @@ function Logement() {
     return (
         <Wrapper>
             <Carousel pictures={logement.pictures} />
-            <TitreLogement
-                title={logement.title}
-                location={logement.location}
-            />
-            <Stars rating={logement.rating} />
-            <Tags tags={logement.tags} />
+            <Details>
+                <DetailsBlock>
+                    <TitreLogement
+                        title={logement.title}
+                        location={logement.location}
+                    />
+                    <Tags tags={logement.tags} />
+                </DetailsBlock>
+                <DetailsNoteEtHost>
+                    <Host
+                        name={logement.host.name}
+                        picture={logement.host.picture}
+                    />
+                    <Stars rating={logement.rating} />
+                </DetailsNoteEtHost>
+            </Details>
             <DropdownWrapper>
                 <Dropdown
                     sujet="Description"
