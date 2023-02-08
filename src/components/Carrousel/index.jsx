@@ -11,7 +11,7 @@ const CarrouselWrapper = styled.div`
     position: relative;
     aspect-ratio: 1240 / 415;
     border-radius: 25px;
-    // overflow: hidden;
+    overflow: hidden;
 `
 const CarrouselContainer = styled.div`
     width: ${(props) => props.nomberItems * 100}%;

@@ -18,7 +18,7 @@ const GlobalStyleStyled = createGlobalStyle`
 
     body {
         margin: 0;
-        background: #E5E5E5;
+        // background: #E5E5E5;
     }
     #root, body, html{
       min-height: 100vh;

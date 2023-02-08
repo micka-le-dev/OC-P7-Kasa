@@ -35,7 +35,7 @@ root.render(
     <Router>
         <GlobalStyle />
         <Header />
-        <div class="corps-de-page">
+        <div className="corps-de-page">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/logement/:idLogement" element={<Logement />} />
