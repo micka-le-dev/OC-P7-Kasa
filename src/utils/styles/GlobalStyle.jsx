@@ -28,7 +28,7 @@ const GlobalStyleStyled = createGlobalStyle`
     .corps-de-page{
       flex-grow: 1;
       margin: 40px 100px;
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 1000px) {
           margin: 40px;
       }
       @media only screen and (max-width: 450px) {

@@ -9,11 +9,8 @@ import styled from "styled-components"
 import TitreLogement from "../../components/TitreLogement/index.jsx"
 import Stars from "../../components/Note/index.jsx"
 import Host from "../../components/Host/index.jsx"
+import calculClampValues from "../../utils/styles/calculClampValues.js"
 
-const DropdownWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-`
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -42,6 +39,16 @@ const DetailsNoteEtHost = styled.div`
         flex-direction: row-reverse;
         align-items: center;
         justify-content: space-between;
+    }
+`
+const DropdownWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    gap: ${calculClampValues(1440, 1000, 76, 30)};
+    @media only screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 `
 
