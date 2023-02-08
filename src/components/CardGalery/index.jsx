@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import { BackgroundImg } from "../../utils/styles/Atoms.jsx"
+import BackgroundImage from "../BackgroundImage/index.jsx"
 
 const LinkCard = styled(Link)`
     display: block;
@@ -36,7 +36,7 @@ const Titre = styled.h3`
 function CardGalery({ idLogement, picture, title }) {
     return (
         <LinkCard to={`/logement/${idLogement}`}>
-            <BackgroundImg src={picture} alt="logement" />
+            <BackgroundImage isHeight={true} src={picture} alt="logement" />
             <VoileSombre />
             <Titre>{title}</Titre>
         </LinkCard>

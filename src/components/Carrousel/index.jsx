@@ -2,9 +2,9 @@ import styled from "styled-components"
 import PropTypes from "prop-types"
 import { useState } from "react"
 
-import { BackgroundImg } from "../../utils/styles/Atoms.jsx"
 import nextSVG from "../../assets/Vector-next.svg"
 import prevSVG from "../../assets/Vector-previous.svg"
+import BackgroundImage from "../BackgroundImage/index.jsx"
 
 // root .carousel 24:48
 const CarrouselWrapper = styled.div`
@@ -154,13 +154,13 @@ function Carrousel({ pictures }) {
             </CarrouselContainer>
 
             <NextBtn onClick={() => next()}>
-                <BackgroundImg
+                <BackgroundImage
                     src={nextSVG}
                     alt={"flèche pour affichier l'image suivante"}
                 />
             </NextBtn>
             <PrevBtn onClick={() => prev()}>
-                <BackgroundImg
+                <BackgroundImage
                     src={prevSVG}
                     alt={"flèche pour affichier l'image précedente"}
                 />

@@ -2,7 +2,8 @@ import styled from "styled-components"
 
 export const BackgroundImg = styled.img`
     display: block;
-    width: 100%;
+    ${(props) => (props?.isHeight ? "height:100%;" : null)}
+    ${(props) => (props?.isWidth ? "width:100%;" : null)}
     object-fit: cover;
 `
 

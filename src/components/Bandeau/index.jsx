@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import PropTypes from "prop-types"
 
-import { BackgroundImg } from "../../utils/styles/Atoms.jsx"
+import BackgroundImage from "../BackgroundImage/index.jsx"
 
 const BandeauBackground = styled.section`
     position: relative;
@@ -29,7 +29,7 @@ const TextStyled = styled.p`
 function Bandeau({ text, imageBG, altImage }) {
     return (
         <BandeauBackground>
-            <BackgroundImg src={imageBG} alt={altImage} />
+            <BackgroundImage src={imageBG} alt={altImage} />
             <VoileNoir />
             {text ? <TextStyled>{text}</TextStyled> : null}
         </BandeauBackground>
