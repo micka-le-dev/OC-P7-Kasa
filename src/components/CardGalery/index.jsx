@@ -7,6 +7,10 @@ const LinkCard = styled(Link)`
     display: block;
     width: 340px;
     height: 340px;
+    @media only screen and (max-width: 450px) {
+        width: 100%;
+        height: 255px;
+    }
 
     position: relative;
     border-radius: 10px;
@@ -24,7 +28,9 @@ const VoileSombre = styled.div`
 `
 const Titre = styled.h3`
     position: absolute;
-    bottom: 0;
+    left: 5.88%;
+    right: 5.88%;
+    bottom: 5.88%;
 
     font-weight: 500;
     font-size: 18px;

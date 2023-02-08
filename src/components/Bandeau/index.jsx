@@ -18,8 +18,14 @@ const VoileNoir = styled.div`
 const TextStyled = styled.p`
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+    @media only screen and (max-width: 1000px) {
+        padding: 0 16px;
+        text-align: left;
+        font-size: 24px;
+    }
 
     font-weight: 500;
     font-size: 48px;
