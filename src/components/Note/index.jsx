@@ -18,13 +18,15 @@ const Stars = styled.div`
 `
 
 function Note({ rating, maxRating }) {
-    const tabRating = []
-    for (let i = 0; i < rating; i++) tabRating.push(starRed)
-    for (let i = rating; i < maxRating; i++) tabRating.push(starGray)
+    const score = rating * 1
+    const scoreMax = maxRating * 1
+    const tab = []
+    for (let i = 0; i < score; i++) tab.push(starRed)
+    for (let i = score; i < scoreMax; i++) tab.push(starGray)
 
     return (
         <Stars>
-            {tabRating.map((etoile, index) => (
+            {tab.map((etoile, index) => (
                 <Star key={"star-" + index} src={etoile} alt={"étoile"} />
             ))}
         </Stars>
@@ -32,11 +34,11 @@ function Note({ rating, maxRating }) {
 }
 
 Note.propTypes = {
-    rating: PropTypes.array.isRequired,
-    maxRating: PropTypes.number,
+    rating: PropTypes.string.isRequired,
+    maxRating: PropTypes.string,
 }
 Note.defaultProps = {
-    rating: 0,
-    maxRating: 5,
+    rating: "0",
+    maxRating: "5",
 }
 export default Note

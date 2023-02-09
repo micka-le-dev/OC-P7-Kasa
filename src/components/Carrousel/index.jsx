@@ -100,37 +100,20 @@ function Carrousel({ pictures }) {
                 (futureItem ? ", futureItem : " + futureItem : "")
         )
     const next = () => {
-        const futurePicture = currentPicture + 1
-        const futureItem = futurePicture < 0 ? lastItem : futurePicture
+        const futurePicture =
+            currentPicture >= nomberPictures ? 1 : currentPicture + 1
+        const futureItem = futurePicture
 
-        logState("next", futurePicture, futureItem)
-        setCurrentPicture(futurePicture > nomberPictures ? 1 : futurePicture)
-        setCurrentItem(futurePicture > nomberPictures ? 1 : futurePicture)
-        // setCurrentItem(futureItem)
-
-        // attendre la fin de l'animation pour faire setCurrentItem(??)
-        // supprimer l'animation pour donner l'illusion d'une infinité d'images
-        // if (futureItem === lastItem)
-        //     setTimeout(() => {
-        //         setCurrentItem(1)
-        //         logState("setTimeout : next -> " + 1)
-        //     }, 1000)
+        setCurrentPicture(futurePicture)
+        setCurrentItem(futureItem)
     }
     const prev = () => {
-        const futurePicture = currentPicture - 1
-        const futureItem = futurePicture < 0 ? lastItem : futurePicture
-        logState("prev", futurePicture, futureItem)
-        setCurrentPicture(futurePicture < 1 ? nomberPictures : futurePicture)
-        setCurrentItem(futurePicture < 1 ? nomberPictures : futurePicture)
-        // setCurrentItem(futureItem)
+        const futurePicture =
+            currentPicture <= 1 ? nomberPictures : currentPicture - 1
+        const futureItem = futurePicture
 
-        // if (futureItem === 0)
-        //     // attendre la fin de l'animation pour faire setCurrentItem(??)
-        //     // supprimer l'animation pour donner l'illusion d'une infinité d'images
-        //     setTimeout(() => {
-        //         setCurrentItem(lastItem - 1)
-        //         logState("setTimeout : prev -> " + (lastItem - 1))
-        //     }, 1000)
+        setCurrentPicture(futurePicture)
+        setCurrentItem(futureItem)
     }
     logState("composant")
 

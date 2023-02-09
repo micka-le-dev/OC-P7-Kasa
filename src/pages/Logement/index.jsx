@@ -7,9 +7,9 @@ import Tags from "../../components/Tags/index.jsx"
 import Dropdown from "../../components/Dropdown/index.jsx"
 import styled from "styled-components"
 import TitreLogement from "../../components/TitreLogement/index.jsx"
-import Stars from "../../components/Note/index.jsx"
 import Host from "../../components/Host/index.jsx"
 import calculClampValues from "../../utils/styles/calculClampValues.js"
+import Note from "../../components/Note/index.jsx"
 
 const Wrapper = styled.div`
     display: flex;
@@ -79,7 +79,7 @@ function Logement() {
                         name={logement.host.name}
                         picture={logement.host.picture}
                     />
-                    <Stars rating={logement.rating} />
+                    <Note rating={logement.rating} />
                 </DetailsNoteEtHost>
             </Details>
             <DropdownWrapper>

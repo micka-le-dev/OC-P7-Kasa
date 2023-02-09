@@ -56,8 +56,10 @@ function Dropdown({ isLarge, sujet, description }) {
                 />
             </Bande>
             <Description isLarge={isLarge} isOpen={isOpen}>
-                {description?.map((paragraphe) => {
-                    return <p>{paragraphe}</p>
+                {description?.map((paragraphe, index) => {
+                    return (
+                        <p key={`dropdown-${sujet}-${index}`}>{paragraphe}</p>
+                    )
                 })}
             </Description>
         </Wrapper>
