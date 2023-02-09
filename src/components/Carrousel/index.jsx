@@ -35,6 +35,7 @@ const Image = styled.img`
 
 const NextBtn = styled.div`
     position: absolute;
+    z-index: 10;
     top: 37.5%;
     right: 1.85%;
     bottom: 43.12%;
@@ -43,6 +44,7 @@ const NextBtn = styled.div`
 `
 const PrevBtn = styled.div`
     position: absolute;
+    z-index: 10;
     top: 37.5%;
     left: 1.85%;
     bottom: 43.12%;
@@ -85,21 +87,21 @@ function Carrousel({ pictures }) {
     const lastItem = nomberItems - 1
     const [currentItem, setCurrentItem] = useState(1)
 
-    const logState = (context, futurePicture = "", futureItem = "") =>
-        console.log(
-            "Carrousel --- " +
-                context +
-                " => picture : " +
-                currentPicture +
-                "/" +
-                nomberPictures +
-                (futurePicture ? ", futurePicture : " + futurePicture : "") +
-                " ___  index item : " +
-                currentItem +
-                "/" +
-                (nomberItems - 1) +
-                (futureItem ? ", futureItem : " + futureItem : "")
-        )
+    // const logState = (context, futurePicture = "", futureItem = "") =>
+    //     console.log(
+    //         "Carrousel --- " +
+    //             context +
+    //             " => picture : " +
+    //             currentPicture +
+    //             "/" +
+    //             nomberPictures +
+    //             (futurePicture ? ", futurePicture : " + futurePicture : "") +
+    //             " ___  index item : " +
+    //             currentItem +
+    //             "/" +
+    //             (nomberItems - 1) +
+    //             (futureItem ? ", futureItem : " + futureItem : "")
+    //     )
     const next = () => {
         const futurePicture =
             currentPicture >= nomberPictures ? 1 : currentPicture + 1
@@ -116,7 +118,7 @@ function Carrousel({ pictures }) {
         setCurrentPicture(futurePicture)
         setCurrentItem(futureItem)
     }
-    logState("composant")
+    // logState("composant")
 
     return (
         <CarrouselWrapper>
