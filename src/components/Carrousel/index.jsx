@@ -105,30 +105,32 @@ function Carrousel({ pictures }) {
 
         logState("next", futurePicture, futureItem)
         setCurrentPicture(futurePicture > nomberPictures ? 1 : futurePicture)
-        setCurrentItem(futureItem)
+        setCurrentItem(futurePicture > nomberPictures ? 1 : futurePicture)
+        // setCurrentItem(futureItem)
 
         // attendre la fin de l'animation pour faire setCurrentItem(??)
         // supprimer l'animation pour donner l'illusion d'une infinité d'images
-        if (futureItem === lastItem)
-            setTimeout(() => {
-                setCurrentItem(1)
-                logState("setTimeout : next -> " + 1)
-            }, 1000)
+        // if (futureItem === lastItem)
+        //     setTimeout(() => {
+        //         setCurrentItem(1)
+        //         logState("setTimeout : next -> " + 1)
+        //     }, 1000)
     }
     const prev = () => {
         const futurePicture = currentPicture - 1
         const futureItem = futurePicture < 0 ? lastItem : futurePicture
         logState("prev", futurePicture, futureItem)
         setCurrentPicture(futurePicture < 1 ? nomberPictures : futurePicture)
-        setCurrentItem(futureItem)
+        setCurrentItem(futurePicture < 1 ? nomberPictures : futurePicture)
+        // setCurrentItem(futureItem)
 
-        if (futureItem === 0)
-            // attendre la fin de l'animation pour faire setCurrentItem(??)
-            // supprimer l'animation pour donner l'illusion d'une infinité d'images
-            setTimeout(() => {
-                setCurrentItem(lastItem - 1)
-                logState("setTimeout : prev -> " + (lastItem - 1))
-            }, 1000)
+        // if (futureItem === 0)
+        //     // attendre la fin de l'animation pour faire setCurrentItem(??)
+        //     // supprimer l'animation pour donner l'illusion d'une infinité d'images
+        //     setTimeout(() => {
+        //         setCurrentItem(lastItem - 1)
+        //         logState("setTimeout : prev -> " + (lastItem - 1))
+        //     }, 1000)
     }
     logState("composant")
 

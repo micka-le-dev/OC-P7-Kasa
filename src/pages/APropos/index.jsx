@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import imageMontagne from "../../assets/bandeau-montagne.jpg"
+import imageMontagne from "../../assets/valee-de-montagne.jpg"
 import Bandeau from "../../components/Bandeau/index.jsx"
 import Dropdown from "../../components/Dropdown/index.jsx"
 

@@ -1,7 +1,7 @@
 import Bandeau from "../../components/Bandeau/index.jsx"
 import Galery from "../../components/Galery/index.jsx"
 
-import imageBG from "../../assets/bandeau-accueil.jpg"
+import imageBG from "../../assets/litorale-rocheux.jpg"
 
 function Home() {
     return (
