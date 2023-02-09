@@ -19,6 +19,7 @@ const Nom = styled.p`
     }
 `
 const Photo = styled.div`
+    position: relative;
     flex-shrink: 0;
     width: 64px;
     aspect-ratio: 1;
@@ -35,6 +36,7 @@ function Host({ name, picture }) {
             <Nom>{name}</Nom>
             <Photo>
                 <BackgroundImage
+                    isAbsolute={false}
                     src={picture}
                     alt={`photo de profile de ${name}`}
                     isHeight={true}

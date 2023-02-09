@@ -6,8 +6,11 @@ import { Message } from "../../utils/styles/Atoms.jsx"
 const Wrapper = styled.section`
     margin-top: 43px;
     padding: 50px;
-    background: #f7f7f7;
     border-radius: 25px;
+    background: #f7f7f7;
+    @media only screen and (max-width: 680px) {
+        background: transparent;
+    }
 `
 const GaleryGrid = styled.div`
     margin: 0 auto;

@@ -42,7 +42,12 @@ const Titre = styled.h3`
 function CardGalery({ idLogement, picture, title }) {
     return (
         <LinkCard to={`/logement/${idLogement}`}>
-            <BackgroundImage isHeight={true} src={picture} alt="logement" />
+            <BackgroundImage
+                isAbsolute={false}
+                isHeight={true}
+                src={picture}
+                alt="logement"
+            />
             <VoileSombre />
             <Titre>{title}</Titre>
         </LinkCard>

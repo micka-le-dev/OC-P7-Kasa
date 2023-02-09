@@ -87,13 +87,14 @@ function Carrousel({ pictures }) {
 
     const logState = (context, futurePicture = "", futureItem = "") =>
         console.log(
-            context +
+            "Carrousel --- " +
+                context +
                 " => picture : " +
                 currentPicture +
                 "/" +
                 nomberPictures +
                 (futurePicture ? ", futurePicture : " + futurePicture : "") +
-                ",___  index item : " +
+                " ___  index item : " +
                 currentItem +
                 "/" +
                 (nomberItems - 1) +
@@ -140,6 +141,7 @@ function Carrousel({ pictures }) {
 
             <NextBtn onClick={() => next()}>
                 <BackgroundImage
+                    isAbsolute={false}
                     src={nextSVG}
                     alt={"flèche pour affichier l'image suivante"}
                 />

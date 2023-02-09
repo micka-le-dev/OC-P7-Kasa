@@ -43,7 +43,7 @@ const DetailsNoteEtHost = styled.div`
 `
 const DropdownWrapper = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: ${calculClampValues(1440, 1000, 76, 30)};
     @media only screen and (max-width: 768px) {
         flex-direction: column;
@@ -56,7 +56,7 @@ function Logement() {
     const { idLogement } = useParams()
     const resFetch = useFetch("id/" + idLogement)
     let { data: logement, isLoad, error } = resFetch
-    console.log("resFetch", resFetch)
+    // console.log("resFetch", resFetch)
     if (!logement?.title) error = true
 
     if (isLoad) return <Message>Chargement en cours...</Message>

@@ -1,9 +1,10 @@
 import { BackgroundImg } from "../../utils/styles/Atoms.jsx"
 import PropTypes from "prop-types"
 
-function BackgroundImage({ isHeight, isWidth, src, alt }) {
+function BackgroundImage({ isAbsolute, isHeight, isWidth, src, alt }) {
     return (
         <BackgroundImg
+            isAbsolute={isAbsolute}
             isHeight={isHeight}
             isWidth={isWidth}
             src={src}
@@ -12,6 +13,7 @@ function BackgroundImage({ isHeight, isWidth, src, alt }) {
     )
 }
 BackgroundImage.propTypes = {
+    isAbsolute: PropTypes.bool,
     isHeight: PropTypes.bool,
     isWidth: PropTypes.bool,
     src: PropTypes.string.isRequired,
@@ -19,6 +21,7 @@ BackgroundImage.propTypes = {
 }
 BackgroundImage.defaultProps = {
     isWidth: true,
+    isAbsolute: true,
 }
 
 export default BackgroundImage
