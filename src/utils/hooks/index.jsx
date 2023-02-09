@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react"
 
-//mocks
-import listLogementsMocked from "../../mocks/logements.json"
-
 export function useFetch(urlAPI) {
-    console.log("useFetch ", urlAPI)
     const [data, setData] = useState([])
     const [isLoad, setLoad] = useState(false)
     const [error, setError] = useState(false)
@@ -12,40 +8,32 @@ export function useFetch(urlAPI) {
     async function fetchData(urlAPI) {
         setLoad(true)
 
-        function mokedFetch(urlAPI) {
-            if (urlAPI.startsWith("id")) {
-                const id = urlAPI.split("/")[1]
-                const logement = listLogementsMocked.find(
-                    (elem) => elem.id === id
-                )
-                if (logement?.id) return logement
-                else throw new Error("Aucun logement avec cet id")
-            } else {
-                return listLogementsMocked
-            }
-        }
-
         try {
-            // Quand l'API sera dev
-            // const response = await fetch(urlAPI)
-            // const data = await response.json()
-
             // mocks
-            const data = mokedFetch(urlAPI)
+            let id
+            if (urlAPI.startsWith("id")) id = urlAPI.split("/")[1]
+            urlAPI = "/mocks/logements.json"
 
-            // mocked ou pas
+            // get
+            const response = await fetch(urlAPI)
+            let data = await response.json()
+
+            // mocks pour 1 logement
+            if (id) data = data.find((logement) => logement.id === id)
+
+            // dans tous les cas : mocked ou pas
+            if (!data) throw new Error("Aucun logement avec cet id")
             setData(data)
         } catch (err) {
             console.error("fetchData", err)
             setError(true)
+            setData(null)
         } finally {
             setLoad(false)
         }
     }
 
-    // fetchData(urlAPI)
     useEffect(() => {
-        console.log("useEffect -> fetch")
         if (!urlAPI) return
         fetchData(urlAPI)
     }, [urlAPI])
