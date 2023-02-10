@@ -26,6 +26,16 @@ const GlobalStyleStyled = createGlobalStyle`
       display: flex;
       flex-direction: column;
     }
+    .page{
+      width:100;
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+    }
+    .colonne{
+      max-width:2200px;
+      width:100vw;
+    }
     .corps-de-page{
       flex-grow: 1;
       margin: 20px 100px 40px;

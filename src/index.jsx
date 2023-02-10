@@ -34,14 +34,21 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
     <Router>
         <GlobalStyle />
-        <Header />
-        <div className="corps-de-page">
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/logement/:idLogement" element={<Logement />} />
-                <Route path="/apropos" element={<APropos />} />
-                <Route path="/*" element={<Error />} />
-            </Routes>
+        <div className="page">
+            <div className="colonne">
+                <Header />
+                <div className="corps-de-page">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route
+                            path="/logement/:idLogement"
+                            element={<Logement />}
+                        />
+                        <Route path="/apropos" element={<APropos />} />
+                        <Route path="/*" element={<Error />} />
+                    </Routes>
+                </div>
+            </div>
         </div>
         <Footer />
     </Router>
