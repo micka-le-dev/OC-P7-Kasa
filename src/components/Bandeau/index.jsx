@@ -4,9 +4,12 @@ import PropTypes from "prop-types"
 import BackgroundImage from "../BackgroundImage/index.jsx"
 import calculClampValues from "../../utils/styles/calculClampValues.js"
 
-const BandeauBackground = styled.section`
+const Wrapper = styled.section`
     position: relative;
     border-radius: 25px;
+    @media only screen and (max-width: 1000px) {
+        border-radius: 10px;
+    }
     overflow: hidden;
 `
 const VoileNoir = styled.div`
@@ -20,13 +23,16 @@ const VoileNoir = styled.div`
 const TextWrapper = styled.div`
     width: 100%;
     min-height: 223px;
+    @media only screen and (max-width: 1000px) {
+        min-height: ${calculClampValues(1000, 500, 223, 111)};
+    }
     display: grid;
     place-items: center;
 `
 const TextStyled = styled.p`
     text-align: center;
     @media only screen and (max-width: 1000px) {
-        padding: 0 16px;
+        padding: 30px 50px 30px 16px;
         text-align: left;
         // font-size: 24px;
     }
@@ -38,7 +44,7 @@ const TextStyled = styled.p`
 
 function Bandeau({ text, imageBG, altImage }) {
     return (
-        <BandeauBackground>
+        <Wrapper>
             <BackgroundImage src={imageBG} alt={altImage} />
             <VoileNoir />
             <TextWrapper>
@@ -46,7 +52,7 @@ function Bandeau({ text, imageBG, altImage }) {
                     <TextStyled key="text-bandeau-ligne-0">{text}</TextStyled>
                 ) : null}
             </TextWrapper>
-        </BandeauBackground>
+        </Wrapper>
     )
 }
 

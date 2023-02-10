@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import calculClampValues from "./calculClampValues.js"
 
 const GlobalStyleStyled = createGlobalStyle`
     * {
@@ -27,12 +28,14 @@ const GlobalStyleStyled = createGlobalStyle`
     }
     .corps-de-page{
       flex-grow: 1;
-      margin: 40px 100px;
+      margin: 20px 100px 40px;
       @media only screen and (max-width: 1000px) {
-          margin: 40px;
+        margin: 40px;
+        margin-top:${calculClampValues(1000, 450, 20, 0)};
       }
       @media only screen and (max-width: 450px) {
-          margin: 20px;
+        margin: 20px;
+        margin-top:${calculClampValues(1000, 450, 20, 0)};
       }
       display: flex;
       flex-direction: column;
