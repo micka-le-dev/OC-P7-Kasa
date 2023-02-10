@@ -5,11 +5,14 @@ import { useState } from "react"
 import nextSVG from "../../assets/Vector-next.svg"
 import prevSVG from "../../assets/Vector-previous.svg"
 import BackgroundImage from "../BackgroundImage/index.jsx"
+import calculClampValues from "../../utils/styles/calculClampValues.js"
 
-// root .carousel 24:48
-const CarrouselWrapper = styled.div`
+const CarrouselWrapper = styled.section`
     position: relative;
     aspect-ratio: 1240 / 415;
+    @media only screen and (max-width: 680px) {
+        aspect-ratio: 335/255;
+    }
     border-radius: 25px;
     overflow: hidden;
 `
@@ -29,6 +32,9 @@ const CarrouselItem = styled.div`
 const Image = styled.img`
     display: block;
     aspect-ratio: 1240 / 415;
+    @media only screen and (max-width: 680px) {
+        aspect-ratio: 335/255;
+    }
     width: 100%;
     object-fit: cover;
 `
@@ -36,22 +42,25 @@ const Image = styled.img`
 const NextBtn = styled.div`
     position: absolute;
     z-index: 10;
-    top: 37.5%;
     right: 1.85%;
-    bottom: 43.12%;
-    width: 47px;
-    height: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    aspect-ratio: 47/80;
+    height: ${calculClampValues(1100, 375, 80, 20)};
 `
 const PrevBtn = styled.div`
     position: absolute;
     z-index: 10;
-    top: 37.5%;
     left: 1.85%;
-    bottom: 43.12%;
-    width: 47px;
-    height: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    aspect-ratio: 47/80;
+    height: ${calculClampValues(1100, 375, 80, 20)};
 `
-const Text = styled.p`
+const NumPage = styled.p`
+    @media only screen and (max-width: 450px) {
+        display: none;
+    }
     position: absolute;
     left: 48.95%;
     right: 49.11%;
@@ -71,20 +80,13 @@ const Text = styled.p`
 
     color: #ffffff;
 `
-
-const TextDebug = styled.p`
-    text-align: center;
-    font-weight: 500;
-    font-size: 48px;
-    color: black;
-`
 function Carrousel({ pictures }) {
     const [currentPicture, setCurrentPicture] = useState(1)
 
     const nomberPictures = pictures.length
     const items = [pictures[nomberPictures - 1], ...pictures, pictures[0]]
     const nomberItems = items.length
-    const lastItem = nomberItems - 1
+    // const lastItem = nomberItems - 1
     const [currentItem, setCurrentItem] = useState(1)
 
     // const logState = (context, futurePicture = "", futureItem = "") =>
@@ -133,9 +135,6 @@ function Carrousel({ pictures }) {
                             nomberItems={nomberItems}
                         >
                             <Image src={item} alt={"interieur du logement"} />
-                            <TextDebug>
-                                index item {index}/{lastItem}
-                            </TextDebug>
                         </CarrouselItem>
                     ))}
                 </CarrouselContent>
@@ -154,9 +153,9 @@ function Carrousel({ pictures }) {
                     alt={"flèche pour affichier l'image précedente"}
                 />
             </PrevBtn>
-            <Text>
+            <NumPage>
                 {currentPicture}/{pictures.length}
-            </Text>
+            </NumPage>
         </CarrouselWrapper>
     )
 }
