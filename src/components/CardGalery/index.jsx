@@ -8,7 +8,7 @@ const LinkCard = styled(Link)`
     width: 340px;
     height: 340px;
     @media only screen and (max-width: 450px) {
-        width: 100%;
+        width: calc(100vw - 40px);
         height: 255px;
     }
 
