@@ -7,12 +7,12 @@ const Wrapper = styled.section`
     margin-top: 43px;
     padding: 50px;
     @media only screen and (max-width: 450px) {
-        margin-top: 0;
         padding: 22px 0;
     }
     border-radius: 25px;
     background: #f7f7f7;
     @media only screen and (max-width: 680px) {
+        margin-top: 0;
         background: transparent;
     }
 `
