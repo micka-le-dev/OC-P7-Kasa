@@ -15,6 +15,7 @@ const CarrouselWrapper = styled.section`
     }
     border-radius: 25px;
     overflow: hidden;
+    background: #f7f7f7;
 `
 const CarrouselContainer = styled.div`
     width: ${(props) => props.nomberItems * 100}%;

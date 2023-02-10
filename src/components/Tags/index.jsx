@@ -4,6 +4,7 @@ import { Tag } from "../../utils/styles/Atoms.jsx"
 
 const TagList = styled.div`
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 `
 function Tags({ tags }) {

@@ -8,9 +8,11 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    // gap: 182px;
+    gap: 182px;
+    padding: 160px 0;
     @media screen and (max-width: 768px) {
-        // gap: 133px;
+        gap: 133px;
+        padding-top: 180px;
     }
 `
 const TitreStyled = styled.h1`
@@ -40,6 +42,7 @@ const ExcuseStyled = styled.span`
 `
 
 const LinkStyled = styled(Link)`
+    text-align: center;
     font-weight: 500;
     font-size: 18px;
     line-height: 142.6%;
