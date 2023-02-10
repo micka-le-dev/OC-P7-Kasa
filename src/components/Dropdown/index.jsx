@@ -5,22 +5,20 @@ import chevron from "../../assets/chevron-dropdown.svg"
 
 const Wrapper = styled.div`
     border-radius: ${(props) => (props.isLarge ? "5px" : "10px")};
-    background: #f7f7f7;
+    background: ${(props) => (props.isOpen ? "#f7f7f7" : "transparent")};
     font-weight: 500;
     line-height: 142.6%;
-    width: 100%;
     ${(props) => {
         if (props.isLarge)
-            return `max-width: 1023px;
+            return `width: clamp(250px, 100%,1023px);
     font-size: 24px;`
         else
-            return `max-width: 582px;
+            return `width: clamp(250px, 100%,582px);
     font-size: 18px;`
     }}
 `
 const Bande = styled.h3`
     padding: ${(props) => (props.isLarge ? "8px 18px" : "13px 20px")};
-    margin-bottom: ${(props) => (props.isLarge ? "27px" : "30px")};
     border-radius: 5px;
     background: #ff6060;
 
@@ -31,25 +29,26 @@ const Bande = styled.h3`
 const Sujet = styled.span`
     color: #ffffff;
 `
+const Fleche = styled.img`
+    transform: ${(props) => (props.isOpen ? "scaleY(-1)" : "scaleY(1)")};
+    transition: transform 0.8 ease-in-out;
+`
 
 const Description = styled.div`
-    ${(props) =>
-        props.isOpen
-            ? `height: 0;
-    overflow: hidden;`
-            : `height: auto;
-    overflow: none;`}
-    padding: ${(props) => (props.isLarge ? "0 20px 18px" : "0 20px 27px")};
+    display: ${(props) => (props.isOpen ? `block` : `none`)};
+    padding: ${(props) =>
+        props.isLarge ? "27px 20px 18px" : "30px 20px 27px"};
 `
 
 function Dropdown({ isLarge, sujet, description }) {
     const [isOpen, setOpen] = useState(false)
     const toggleOpen = () => setOpen(!isOpen)
     return (
-        <Wrapper isLarge={isLarge}>
+        <Wrapper isLarge={isLarge} isOpen={isOpen}>
             <Bande isLarge={isLarge}>
                 <Sujet>{sujet}</Sujet>
-                <img
+                <Fleche
+                    isOpen={isOpen}
                     onClick={() => toggleOpen()}
                     src={chevron}
                     alt="chevron dropdown"

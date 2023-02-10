@@ -3,10 +3,12 @@ import imageMontagne from "../../assets/valee-de-montagne.jpg"
 import Bandeau from "../../components/Bandeau/index.jsx"
 import Dropdown from "../../components/Dropdown/index.jsx"
 
-const WrapperDropdown = styled.div`
+const WrapperDropdown = styled.section`
     margin: 33px auto;
+    width: 100%;
     display: grid;
     justify-content: center;
+    place-items: center;
     grid-template-columns: 1fr;
     gap: 33px;
 `
