@@ -25,6 +25,8 @@ const Bande = styled.h3`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    cursor: pointer;
 `
 const Sujet = styled.span`
     color: #ffffff;
@@ -45,14 +47,9 @@ function Dropdown({ isLarge, sujet, description }) {
     const toggleOpen = () => setOpen(!isOpen)
     return (
         <Wrapper isLarge={isLarge} isOpen={isOpen}>
-            <Bande isLarge={isLarge}>
+            <Bande isLarge={isLarge} onClick={() => toggleOpen()}>
                 <Sujet>{sujet}</Sujet>
-                <Fleche
-                    isOpen={isOpen}
-                    onClick={() => toggleOpen()}
-                    src={chevron}
-                    alt="chevron dropdown"
-                />
+                <Fleche isOpen={isOpen} src={chevron} alt="chevron dropdown" />
             </Bande>
             <Description isLarge={isLarge} isOpen={isOpen}>
                 {description?.map((paragraphe, index) => {
