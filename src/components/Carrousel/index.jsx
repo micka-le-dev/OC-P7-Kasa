@@ -49,6 +49,8 @@ const NextBtn = styled.div`
     transform: translateY(-50%);
     aspect-ratio: 47/80;
     height: ${calculClampValues(1100, 375, 80, 20)};
+
+    cursor: pointer;
 `
 const PrevBtn = styled.div`
     ${(props) => (props.isOneImage ? "display:none;" : null)}
@@ -59,6 +61,8 @@ const PrevBtn = styled.div`
     transform: translateY(-50%);
     aspect-ratio: 47/80;
     height: ${calculClampValues(1100, 375, 80, 20)};
+
+    cursor: pointer;
 `
 const NumPage = styled.p`
     @media only screen and (max-width: 450px) {
@@ -87,7 +91,7 @@ function Carrousel({ pictures }) {
     const [currentPicture, setCurrentPicture] = useState(1)
 
     const nomberPictures = pictures.length
-    const [isOneImage, setOneImage] = useState(nomberPictures === 1)
+    const [isOneImage] = useState(nomberPictures === 1)
     const items = [pictures[nomberPictures - 1], ...pictures, pictures[0]]
     const nomberItems = items.length
     // const lastItem = nomberItems - 1
