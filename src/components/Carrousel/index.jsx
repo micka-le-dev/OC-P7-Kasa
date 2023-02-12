@@ -41,6 +41,7 @@ const Image = styled.img`
 `
 
 const NextBtn = styled.div`
+    ${(props) => (props.isOneImage ? "display:none;" : null)}
     position: absolute;
     z-index: 10;
     right: 1.85%;
@@ -50,6 +51,7 @@ const NextBtn = styled.div`
     height: ${calculClampValues(1100, 375, 80, 20)};
 `
 const PrevBtn = styled.div`
+    ${(props) => (props.isOneImage ? "display:none;" : null)}
     position: absolute;
     z-index: 10;
     left: 1.85%;
@@ -85,6 +87,7 @@ function Carrousel({ pictures }) {
     const [currentPicture, setCurrentPicture] = useState(1)
 
     const nomberPictures = pictures.length
+    const [isOneImage, setOneImage] = useState(nomberPictures === 1)
     const items = [pictures[nomberPictures - 1], ...pictures, pictures[0]]
     const nomberItems = items.length
     // const lastItem = nomberItems - 1
@@ -141,14 +144,14 @@ function Carrousel({ pictures }) {
                 </CarrouselContent>
             </CarrouselContainer>
 
-            <NextBtn onClick={() => next()}>
+            <NextBtn onClick={() => next()} isOneImage={isOneImage}>
                 <BackgroundImage
                     isAbsolute={false}
                     src={nextSVG}
                     alt={"flèche pour affichier l'image suivante"}
                 />
             </NextBtn>
-            <PrevBtn onClick={() => prev()}>
+            <PrevBtn onClick={() => prev()} isOneImage={isOneImage}>
                 <BackgroundImage
                     src={prevSVG}
                     alt={"flèche pour affichier l'image précedente"}
