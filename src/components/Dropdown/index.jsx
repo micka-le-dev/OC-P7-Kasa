@@ -65,7 +65,7 @@ function Dropdown({ isLarge, sujet, description }) {
 Dropdown.propTypes = {
     isLarge: PropTypes.bool,
     sujet: PropTypes.string,
-    description: PropTypes.array,
+    description: PropTypes.array, // liste de paragraphes
 }
 Dropdown.defaultProps = {
     isLarge: false,

@@ -88,47 +88,20 @@ const NumPage = styled.p`
     color: #ffffff;
 `
 function Carrousel({ pictures }) {
-    const [currentPicture, setCurrentPicture] = useState(1)
-
-    const nomberPictures = pictures.length
-    const [isOneImage] = useState(nomberPictures === 1)
-    const items = [pictures[nomberPictures - 1], ...pictures, pictures[0]]
+    const items = pictures
     const nomberItems = items.length
-    // const lastItem = nomberItems - 1
-    const [currentItem, setCurrentItem] = useState(1)
+    const lastItem = nomberItems - 1
+    const [isOneImage] = useState(nomberItems === 1)
+    const [currentItem, setCurrentItem] = useState(0)
 
-    // const logState = (context, futurePicture = "", futureItem = "") =>
-    //     console.log(
-    //         "Carrousel --- " +
-    //             context +
-    //             " => picture : " +
-    //             currentPicture +
-    //             "/" +
-    //             nomberPictures +
-    //             (futurePicture ? ", futurePicture : " + futurePicture : "") +
-    //             " ___  index item : " +
-    //             currentItem +
-    //             "/" +
-    //             (nomberItems - 1) +
-    //             (futureItem ? ", futureItem : " + futureItem : "")
-    //     )
     const next = () => {
-        const futurePicture =
-            currentPicture >= nomberPictures ? 1 : currentPicture + 1
-        const futureItem = futurePicture
-
-        setCurrentPicture(futurePicture)
+        const futureItem = currentItem >= lastItem ? 0 : currentItem + 1
         setCurrentItem(futureItem)
     }
     const prev = () => {
-        const futurePicture =
-            currentPicture <= 1 ? nomberPictures : currentPicture - 1
-        const futureItem = futurePicture
-
-        setCurrentPicture(futurePicture)
+        const futureItem = currentItem <= 0 ? lastItem : currentItem - 1
         setCurrentItem(futureItem)
     }
-    // logState("composant")
 
     return (
         <CarrouselWrapper>
@@ -162,7 +135,7 @@ function Carrousel({ pictures }) {
                 />
             </PrevBtn>
             <NumPage>
-                {currentPicture}/{pictures.length}
+                {currentItem + 1}/{pictures.length}
             </NumPage>
         </CarrouselWrapper>
     )
