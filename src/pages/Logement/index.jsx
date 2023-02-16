@@ -1,15 +1,19 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { useEffect } from "react"
 import { useFetch } from "../../utils/hooks/index.jsx"
-import Carousel from "../../components/Carrousel/index.jsx"
-import { Message } from "../../utils/styles/Atoms.jsx"
-import Tags from "../../components/Tags/index.jsx"
-import Dropdown from "../../components/Dropdown/index.jsx"
+
+// gestion du style
 import styled from "styled-components"
-import TitreLogement from "../../components/TitreLogement/index.jsx"
-import Host from "../../components/Host/index.jsx"
 import calculClampValues from "../../utils/styles/calculClampValues.js"
+import { Message } from "../../utils/styles/Atoms.jsx"
+
+// import des composants
+import Carousel from "../../components/Carrousel/index.jsx"
+import TitreLogement from "../../components/TitreLogement/index.jsx"
+import Tags from "../../components/Tags/index.jsx"
+import Host from "../../components/Host/index.jsx"
 import Note from "../../components/Note/index.jsx"
+import Dropdown from "../../components/Dropdown/index.jsx"
 
 const Wrapper = styled.div`
     display: flex;

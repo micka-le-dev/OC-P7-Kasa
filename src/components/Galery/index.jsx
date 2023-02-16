@@ -1,3 +1,6 @@
+import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
+
 import styled from "styled-components"
 import CardGalery from "../CardGalery/index.jsx"
 import { useFetch } from "../../utils/hooks/index"
@@ -30,21 +33,19 @@ const GaleryGrid = styled.div`
 
 export default function Galery() {
     const { data: listLogements, isLoad, error } = useFetch("logements")
+    const navigate = useNavigate()
 
-    if (isLoad)
+    useEffect(() => {
+        console.log("uesEffect Logement : error = ", error)
+        if (error) {
+            navigate("/error")
+        }
+    }, [error, navigate])
+
+    if (isLoad || error)
         return (
             <Wrapper>
                 <Message>Chargement de la galerie en cours...</Message>
-            </Wrapper>
-        )
-
-    if (error)
-        return (
-            <Wrapper>
-                <Message>
-                    Oups! Une erreur est survenue lors de la récupération de la
-                    galerie.
-                </Message>
             </Wrapper>
         )
 
