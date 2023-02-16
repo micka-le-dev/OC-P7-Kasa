@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
+import { useEffect } from "react"
 import { useFetch } from "../../utils/hooks/index.jsx"
 import Carousel from "../../components/Carrousel/index.jsx"
 import { Message } from "../../utils/styles/Atoms.jsx"
@@ -53,18 +54,17 @@ const DropdownWrapper = styled.div`
 
 function Logement() {
     const { idLogement } = useParams()
-    const resFetch = useFetch("id/" + idLogement)
     const navigate = useNavigate()
-    let { data: logement, isLoad, error } = resFetch
-    // console.log("resFetch", resFetch)
-    if (!logement?.title) error = true
+    let { data: logement, isLoad, error } = useFetch("id/" + idLogement)
 
-    if (isLoad) return <Message>Chargement en cours...</Message>
+    useEffect(() => {
+        console.log("uesEffect Logement : error = ", error)
+        if (error) {
+            navigate("/error")
+        }
+    }, [error, navigate])
 
-    if (error) {
-        navigate("/error")
-        return <></>
-    }
+    if (isLoad || error) return <Message>Chargement en cours...</Message>
 
     return (
         <Wrapper>

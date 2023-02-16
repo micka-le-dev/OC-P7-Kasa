@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 
 export function useFetch(urlAPI) {
     const [data, setData] = useState([])
-    const [isLoad, setLoad] = useState(false)
+    const [isLoad, setLoad] = useState(true)
     const [error, setError] = useState(false)
 
     async function fetchData(urlAPI) {
