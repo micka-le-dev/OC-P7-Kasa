@@ -36,7 +36,6 @@ export default function Galery() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        console.log("uesEffect Logement : error = ", error)
         if (error) {
             navigate("/error")
         }

@@ -62,7 +62,6 @@ function Logement() {
     let { data: logement, isLoad, error } = useFetch("id/" + idLogement)
 
     useEffect(() => {
-        console.log("uesEffect Logement : error = ", error)
         if (error) {
             navigate("/error")
         }
